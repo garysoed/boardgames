@@ -1,0 +1,15 @@
+{namespace bgm.hml.hangout.cards}
+
+/**
+ * Renders description of every card
+ * @param set {String} set that the card comes in
+ * @param name {String} name of the card
+ */
+{template .description}
+{switch $set}
+  {case 'base'}
+    {call bgm.hml.hangout.cards.base.description}
+      {param name: $name/}
+    {/call}
+{/switch}
+{/template}

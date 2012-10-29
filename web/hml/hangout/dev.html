@@ -5,26 +5,28 @@
     <script src="../../../third_party/js/soy/soyutils.js"></script>
     
     <!-- Templates -->
-    <script src="../templates/ui.js"></script>
+    <script src="out/templates/cards/description.js"></script>
+    <script src="out/templates/cards/base.js"></script>
+    <script src="out/templates/ui.js"></script>
     
     <script src="../../common/util.js"></script>
     
+    <script src="card.js"></script>
     <script src="globals.js"></script>
     <script src="globalinfo.js"></script>
     <script src="hml.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+
     <div id="globalinfo"></div>
     <div id="gamearea">
+      <div id="cardinfo"></div>
       <div id="playarea">
-        <div>
-          <div id="cardinfo"></div>
-          <div id="table"></div>
-        </div>
-        <div>
-          <div id="playerstat"></div>
-          <div id="hand"></div>
-        </div>
+        <div id="table"></div>
+        <div id="hand"></div>
       </div>
-      <div id="rivals"></div>
+      <div id="tabs"></div>
     </div>
   </body>
 </html>

@@ -1,0 +1,12 @@
+{namespace bgm.hml.hangout.cards.base}
+
+/**
+ * Renders description of every cards in the base set
+ * @param name {String} name of the card
+ */
+{template .description}
+{switch $name}
+  {case 'banana'}
+    Gains 2 {call bgm.hml.hangout.ui.energy /}
+{/switch}
+{/template}

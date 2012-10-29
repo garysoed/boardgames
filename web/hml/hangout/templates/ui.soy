@@ -1,0 +1,83 @@
+{namespace bgm.hml.hangout.ui}
+
+/**
+ * @param card {Object} card to be rendered
+ */
+{template .cardZoom}
+<div class="card-container card-{$card.types[0]}">
+  <div class="card-info">
+    <div class="card-name">
+      {$card.name}
+    </div>
+    {if $card.requirement}
+      <div class="card-requirement">
+        {call .cardRequirement data="$card.requirement" /} 
+      </div>
+    {/if}
+  </div>
+  <div class="card-image card-image-{$card.name}" />
+  <div class="card-types">
+    {call .cardTypes}
+      {param types: $card.types /}
+    {/call}
+  </div>
+  <div class="card-description">
+    {call bgm.hml.hangout.cards.description}
+      {param set: $card.set/}
+      {param name: $card.name/}
+    {/call}
+  </div>
+  <div class="card-info-bottom">
+    <div class="card-copies">
+      {$card.copies} copies
+    </div>
+    <div class="card-happiness" />
+  </div>
+</div>
+{/template}
+
+/**
+ * @param requirement {Object} requirement to be rendered
+ */
+{template .cardRequirement}
+<div class="card-requirement-count">
+  {$requirement.count}
+</div>
+{call .resource data="$requirement.resource" /}
+{/template}
+
+/**
+ * @param types {Array} types, ordered by importance
+ */
+{template .cardTypes}
+{foreach $type in $types}
+  {if not isFirst($type)}
+    {sp}-{sp}
+  {/if}
+  {$type}
+{/foreach}
+{/template}
+
+/**
+ * @param resourceType {String} resource type to be rendered
+ */
+{template .resource}
+<div class="resource-{$resourceType}"></div>
+{/template}
+
+/**
+ */
+{template .energy}
+{call .resource}
+  {param resourceType: 'energy' /}
+{/call}
+{/template}
+
+/**
+ * @param turn {number} current turn.
+ * @param totalTurn {number} total number of turns.
+ * @param phase {string} name of the current phase
+ */
+{template .globalInfo}
+Day {$turn} of {$totalTurn}: {$phase}
+{/template}
