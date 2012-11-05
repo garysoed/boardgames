@@ -1,3 +1,11 @@
+function resizeGameArea() {
+  $('#gamearea').height($('#root').height() - $('#globalinfo').height());
+}
+
+function resizePlayArea() {
+  $('#playarea').width($('#gamearea').width() - $('cardinfo').width() - $('tabs').width());
+}
+
 $(document).ready(function() {
   bgm.hml.hangout.GlobalInfo($('#globalinfo'));
 
@@ -7,9 +15,13 @@ $(document).ready(function() {
       'base',
       null,
       20);
-  var cardZoom = $(bgm.hml.hangout.ui.cardZoom({ card: banana }));
-  $('#cardinfo').html(cardZoom);
-  var cardWidth = cardZoom.width();
-  var cardHeight = cardWidth * 3 / 2;
-  cardZoom.css({ 'height': cardHeight + 'px' });
+  $('#hand').append(bgm.hml.hangout.Card.entity(banana));
+
+  // Layout stuff
+  $(window).resize(function() {
+    resizeGameArea();
+    resizePlayArea();
+  });
+  resizeGameArea();
+  resizePlayArea();
 });

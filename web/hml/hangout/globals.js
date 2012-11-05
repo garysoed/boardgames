@@ -12,3 +12,17 @@ bgm.hml.hangout.ResourceType = {
 bgm.hml.hangout.Phase = {
   DRAFT: "draft",
 };
+
+/**
+ * Show card zoomed at the card zoom panel.
+ * 
+ * @param {bgm.hml.hangout.Card} card the card to be shown. Null to show the
+ *     back size of the card.
+ */
+bgm.hml.hangout.showCardZoom = function(card) {
+  var cardZoom = $(bgm.hml.hangout.cardRender({ card: card }));
+  $('#cardinfo').html(cardZoom);
+  var cardWidth = cardZoom.width();
+  var cardHeight = cardWidth * 3 / 2;
+  cardZoom.css({ 'height': cardHeight + 'px' });
+}

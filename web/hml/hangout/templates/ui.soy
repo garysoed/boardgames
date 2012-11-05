@@ -1,4 +1,18 @@
-{namespace bgm.hml.hangout.ui}
+{namespace bgm.hml.hangout}
+
+/**
+ * @param card {Object} card to be rendered. Shows the back of the card if
+ * null.
+ */
+{template .cardRender}
+{if $card}
+  {call .cardZoom}
+    {param card: $card /}
+  {/call}
+{else}
+  {call .cardBack /}
+{/if}
+{/template}
 
 /**
  * @param card {Object} card to be rendered
@@ -56,6 +70,21 @@
   {/if}
   {$type}
 {/foreach}
+{/template}
+
+/**
+ * Renders the back of the card
+ */
+{template .cardBack}
+<div class="card-back" />
+{/template}
+
+/**
+ * Renders the interactive version of the card
+ * @param card {Object} card to be rendered
+ */
+{template .cardEntity}
+<div class="card-entity card-{$card.types[0]}" />
 {/template}
 
 /**
