@@ -20,7 +20,7 @@ bgm.hml.hangout.Card.entity = function(card) {
       bgm.hml.hangout.showCardZoom(card);
     },
     function() { // Handler out
-      //bgm.hml.hangout.showCardZoom(null);
+      bgm.hml.hangout.showCardZoom(null);
     }
   );
   return element;

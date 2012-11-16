@@ -16,12 +16,4 @@ $(document).ready(function() {
       null,
       20);
   $('#hand').append(bgm.hml.hangout.Card.entity(banana));
-
-  // Layout stuff
-  $(window).resize(function() {
-    resizeGameArea();
-    resizePlayArea();
-  });
-  resizeGameArea();
-  resizePlayArea();
 });

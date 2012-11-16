@@ -22,7 +22,4 @@ bgm.hml.hangout.Phase = {
 bgm.hml.hangout.showCardZoom = function(card) {
   var cardZoom = $(bgm.hml.hangout.cardRender({ card: card }));
   $('#cardinfo').html(cardZoom);
-  var cardWidth = cardZoom.width();
-  var cardHeight = cardWidth * 3 / 2;
-  cardZoom.css({ 'height': cardHeight + 'px' });
 }
