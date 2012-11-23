@@ -1,19 +1,22 @@
-function resizeGameArea() {
-  $('#gamearea').height($('#root').height() - $('#globalinfo').height());
+goog.provide('bgm.hml.main');
+
+goog.require('bgm.hml');
+goog.require('bgm.hml.Card');
+goog.require('bgm.hml.data.card.base');
+goog.require('bgm.hml.GlobalInfo');
+
+bgm.hml.main = function() {
+  // Compile all the card data
+  bgm.hml.compileCardData(bgm.hml.data.card);
+
+  $(document).ready(function() {
+    bgm.hml.GlobalInfo($('#globalinfo'));
+
+    var renderedCard = bgm.hml.Card.render(
+        bgm.hml.data.card.base.banana);
+    $('#hand').append(renderedCard);
+  });
 }
 
-function resizePlayArea() {
-  $('#playarea').width($('#gamearea').width() - $('cardinfo').width() - $('tabs').width());
-}
-
-$(document).ready(function() {
-  bgm.hml.hangout.GlobalInfo($('#globalinfo'));
-
-  var banana = new bgm.hml.hangout.Card(
-      'banana',
-      ['consumable', 'staple'],
-      'base',
-      null,
-      20);
-  $('#hand').append(bgm.hml.hangout.Card.entity(banana));
-});
+// Ensures the symbol will be visible after compiler renaming.
+goog.exportSymbol('bgm.hml.main', bgm.hml.main);

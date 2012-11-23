@@ -1,10 +1,10 @@
 // This file was automatically generated from t.soy.
 // Please don't edit this file by hand.
 
-if (typeof bgm == 'undefined') { var bgm = {}; }
-if (typeof bgm.hml == 'undefined') { bgm.hml = {}; }
-if (typeof bgm.hml.hangout == 'undefined') { bgm.hml.hangout = {}; }
-if (typeof bgm.hml.hangout.ui == 'undefined') { bgm.hml.hangout.ui = {}; }
+goog.provide('bgm.hml.hangout.ui');
+
+goog.require('soy');
+goog.require('soy.StringBuilder');
 
 
 bgm.hml.hangout.ui.test = function(opt_data, opt_sb) {

@@ -1,4 +1,4 @@
-{namespace bgm.hml.hangout.cards.base}
+{namespace bgm.hml.ui.cards.base}
 
 /**
  * Renders description of every cards in the base set
@@ -7,6 +7,8 @@
 {template .description}
 {switch $name}
   {case 'banana'}
-    Gains 2 {call bgm.hml.hangout.energy /}
+    Gains 2 {call bgm.hml.ui.energy /}
+  {case 'sad-memory'}
+    When you draw this, discard this card.
 {/switch}
 {/template}

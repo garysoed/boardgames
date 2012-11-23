@@ -1,11 +1,14 @@
-bgm.namespace("bgm.hml.hangout.GlobalInfo");
+goog.provide('bgm.hml.GlobalInfo');
 
-bgm.hml.hangout.GlobalInfo = function(container) {
+goog.require('bgm.hml.enums');
+goog.require('bgm.hml.ui');
+
+bgm.hml.GlobalInfo = function(container) {
   container.html(
-      bgm.hml.hangout.globalInfo({ 
+      bgm.hml.ui.globalInfo({ 
         turn: 1,
         totalTurn: 20,
-        phase: bgm.hml.hangout.Phase.DRAFT
+        phase: bgm.hml.enums.Phase.DRAFT
   }));
 };
 

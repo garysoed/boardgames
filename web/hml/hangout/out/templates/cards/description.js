@@ -1,17 +1,18 @@
 // This file was automatically generated from description.soy.
 // Please don't edit this file by hand.
 
-if (typeof bgm == 'undefined') { var bgm = {}; }
-if (typeof bgm.hml == 'undefined') { bgm.hml = {}; }
-if (typeof bgm.hml.hangout == 'undefined') { bgm.hml.hangout = {}; }
-if (typeof bgm.hml.hangout.cards == 'undefined') { bgm.hml.hangout.cards = {}; }
+goog.provide('bgm.hml.ui.cards');
+
+goog.require('soy');
+goog.require('soy.StringBuilder');
+goog.require('bgm.hml.ui.cards.base');
 
 
-bgm.hml.hangout.cards.description = function(opt_data, opt_sb) {
+bgm.hml.ui.cards.description = function(opt_data, opt_sb) {
   var output = opt_sb || new soy.StringBuilder();
   switch (opt_data.set) {
     case 'base':
-      bgm.hml.hangout.cards.base.description(opt_data, output);
+      bgm.hml.ui.cards.base.description(opt_data, output);
       break;
   }
   return opt_sb ? '' : output.toString();

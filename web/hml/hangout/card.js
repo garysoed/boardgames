@@ -1,26 +1,15 @@
-bgm.namespace("bgm.hml.hangout.Card")
+goog.provide('bgm.hml.Card')
 
-bgm.hml.hangout.Card = function(name, types, set, requirement, copies) {
-  this.name = name;
-  this.types = types;
-  this.set = set;
-  this.requirement = requirement;
-  this.copies = copies;
-};
+goog.require('bgm.hml.ui');
 
-bgm.hml.hangout.Card.Requirement = function(count, resourceType) {
-  this.count = count;
-  this.resourceType = resourceType;
-};
-
-bgm.hml.hangout.Card.entity = function(card) {
-  var element = $(bgm.hml.hangout.cardEntity({ card: card }));
+bgm.hml.Card.render = function(cardData) {
+  var element = $(bgm.hml.ui.cardEntity({ card: cardData }));
   $(element).hover(
     function() { // Handler in
-      bgm.hml.hangout.showCardZoom(card);
+      bgm.hml.showCardZoom(cardData);
     },
     function() { // Handler out
-      bgm.hml.hangout.showCardZoom(null);
+      bgm.hml.showCardZoom(null);
     }
   );
   return element;
