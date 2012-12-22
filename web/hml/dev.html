@@ -11,14 +11,17 @@
     <script>
       goog.require('bgm.hml.main');
     </script>
+    <script src="storage/simple.js"></script>
 
     <!-- CSS -->
-<!--    <link rel="stylesheet" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css"> -->
     <link rel="stylesheet" href="css/card.css" />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <script>
+      // Use the simple implementation for both local and global storages
+      bgm.hml.storage.client.Local.bindTo(bgm.hml.storage.impl.Simple);
+
       bgm.hml.main();
     </script>
     <div id="root">

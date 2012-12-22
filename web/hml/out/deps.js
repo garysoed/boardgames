@@ -16,3 +16,4 @@ goog.addDependency('../../../../../web/hml/out/templates/cards/base.js', ['bgm.h
 goog.addDependency('../../../../../web/hml/out/templates/cards/description.js', ['bgm.hml.ui.cards'], ['bgm.hml.ui.cards.base', 'soy', 'soy.StringBuilder']);
 goog.addDependency('../../../../../web/hml/out/templates/test/t.js', ['bgm.hml.hangout.ui'], ['soy', 'soy.StringBuilder']);
 goog.addDependency('../../../../../web/hml/out/templates/ui.js', ['bgm.hml.ui'], ['bgm.hml.ui.cards', 'soy', 'soy.StringBuilder']);
+goog.addDependency('../../../../../web/hml/storage/simple.js', ['bgm.hml.storage.impl.Simple'], []);
