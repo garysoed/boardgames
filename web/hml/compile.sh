@@ -1,5 +1,5 @@
 #!/bin/bash -e 
-ROOT=../..
+ROOT=..
 OUT=out
 THIRD_PARTY_DIR=$ROOT/../third_party
 

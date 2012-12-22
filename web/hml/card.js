@@ -1,3 +1,4 @@
+// Represents a card entity that players can interact with
 goog.provide('bgm.hml.Card')
 
 goog.require('bgm.hml.ui');

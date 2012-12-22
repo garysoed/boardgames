@@ -12,11 +12,9 @@ bgm.hml.main = function() {
   $(document).ready(function() {
     bgm.hml.GlobalInfo($('#globalinfo'));
 
-    var renderedCard = bgm.hml.Card.render(
+    var renderedCard = new bgm.hml.Card.render(
         bgm.hml.data.card.base.banana);
     $('#hand').append(renderedCard);
   });
 }
 
-// Ensures the symbol will be visible after compiler renaming.
-goog.exportSymbol('bgm.hml.main', bgm.hml.main);
