@@ -2,12 +2,13 @@ goog.provide('bgm.hml.main');
 
 goog.require('bgm.hml');
 goog.require('bgm.hml.Card');
+goog.require('bgm.hml.CardData');
 goog.require('bgm.hml.data.card.base');
 goog.require('bgm.hml.GlobalInfo');
 
 bgm.hml.main = function() {
   // Compile all the card data
-  bgm.hml.compileCardData(bgm.hml.data.card);
+  bgm.hml.CardData.compile(bgm.hml.data.card);
 
   $(document).ready(function() {
     bgm.hml.GlobalInfo($('#globalinfo'));
