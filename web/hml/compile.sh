@@ -24,5 +24,4 @@ find templates -name "*.soy" | xargs java -jar $SOY_COMPILER \
 $DEPS_COMPILER \
   --output_file=$OUT/deps.js \
   --root_with_prefix="$OUT ../../../../../web/hml/hangout/$OUT" \
-  --root=$ROOT/common \
   --root_with_prefix="$ROOT/hml ../../../../../web/hml"
