@@ -14,10 +14,11 @@ HTML_DEPS=JS_DEPS
 
 MODE=$1
 
-case $MODE in
-  local) PREFIX="../../../../..";;
-  dev) PREFIX="https://raw.github.com/garysoed/boardgames/dev";;
-esac
+PREFIX="../../../../.."
+#case $MODE in
+#  local) PREFIX="../../../../..";;
+#  dev) PREFIX="https://raw.github.com/garysoed/boardgames/dev";;
+#esac
 
 rm -rf $OUT
 mkdir $OUT
