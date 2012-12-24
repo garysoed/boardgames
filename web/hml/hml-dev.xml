@@ -7,20 +7,20 @@
   <Content type="html">
   <![CDATA[
     <script src="http://talkgadget.google.com/hangouts/_/api/hangout.js?v=1.2"></script>
-    <script src="../../third_party/js/jquery-dev.js"></script>
-    <script src="../../third_party/js/soy/soyutils.js"></script>
+    <script src="https://raw.github.com/garysoed/boardgames/dev/third_party/js/jquery-dev.js"></script>
+    <script src="https://raw.github.com/garysoed/boardgames/dev/third_party/js/soy/soyutils.js"></script>
     
     <!-- Templates -->
-    <script src="../../third_party/js/closure-library/closure/goog/base.js"></script>
-    <script src="out/deps-dev.js"></script>
+    <script src="https://raw.github.com/garysoed/boardgames/dev/third_party/js/closure-library/closure/goog/base.js"></script>
+    <script src="https://raw.github.com/garysoed/boardgames/dev/web/hml/out/deps-dev.js"></script>
     <script>
       goog.require('bgm.hml.main');
     </script>
-    <script src="storage/simple.js"></script>
+    <script src="https://raw.github.com/garysoed/boardgames/dev/web/hml/storage/simple.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/card.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="https://raw.github.com/garysoed/boardgames/dev/web/hml/css/card.css" />
+    <link rel="stylesheet" href="https://raw.github.com/garysoed/boardgames/dev/web/hml/css/main.css" />
     <script>
       bgm.hml.main();
     </script>
