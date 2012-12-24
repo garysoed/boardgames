@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <script src="http://talkgadget.google.com/hangouts/_/api/hangout.js?v=1.2"></script>
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Happy My Life">
+    <Require feature="rpc"/>
+    <Require feature="views"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+    <script src="//hangoutsapi.talkgadget.google.com/hangouts/_/api/hangout.js?v=1.2"></script>
     <script src="../../third_party/js/jquery-dev.js"></script>
     <script src="../../third_party/js/soy/soyutils.js"></script>
     
@@ -48,5 +51,6 @@
         <div id="tabs"></div>
       </div>
     </div>
-  </body>
-</html>
+    ]]>
+  </Content>
+</Module>
