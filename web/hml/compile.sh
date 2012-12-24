@@ -12,6 +12,13 @@ HTML_DIR=hml/hangout
 HTML_FILE=$HTML_DIR/dev.html
 HTML_DEPS=JS_DEPS
 
+MODE=$1
+
+case $MODE in
+  local) PREFIX="../../../../..";;
+  dev) PREFIX="https://raw.github.com/garysoed/boardgames/dev";;
+esac
+
 rm -rf $OUT
 mkdir $OUT
 
@@ -22,6 +29,6 @@ find templates -name "*.soy" | xargs java -jar $SOY_COMPILER \
 
 # Create the deps file
 $DEPS_COMPILER \
-  --output_file=$OUT/deps.js \
-  --root_with_prefix="$OUT ../../../../../web/hml/hangout/$OUT" \
-  --root_with_prefix="$ROOT/hml ../../../../../web/hml"
+  --output_file=$OUT/deps-$MODE.js \
+  --root_with_prefix="$OUT $PREFIX/web/hml/hangout/$OUT" \
+  --root_with_prefix="$ROOT/hml $PREFIX/web/hml"
