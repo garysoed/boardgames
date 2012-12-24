@@ -4,7 +4,7 @@
     <Require feature="rpc"/>
     <Require feature="views"/>
   </ModulePrefs>
-  <Content type="url" href="https://raw.github.com/garysoed/boardgames/dev/web/hml/dev.html">
+  <Content type="html">
   <![CDATA[
     <script src="http://talkgadget.google.com/hangouts/_/api/hangout.js?v=1.2"></script>
     <script src="../../third_party/js/jquery-dev.js"></script>
