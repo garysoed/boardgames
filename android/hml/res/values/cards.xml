@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="card_desc">&lt;b>%1$s (%2$d)&lt;/b>&lt;br/>
+    &lt;br/>
+    %3$s</string>
+
+  <!-- Types -->
+  <string name="staple">Staple</string>
+  <string name="activity">Activity</string>
+  <string name="draft">Draft</string>
+  <string name="action">Action</string>
+  <string name="consumable">Consumable</string>
+  <string name="friend">Friend</string>
+  <string name="memory">Memory</string>
+  <string name="cat">Cat</string>
+  <string name="robot">Robot</string>
+  <string name="spirit">Spirit</string>
+  <string name="teacher">Teacher</string>
+  <string name="nonstaple">Non Staple</string>
+
+  <!-- Staple -->
+  <!-- Banana -->
+  <string name="banana_name">Banana</string>
+  <string name="banana_desc">Gains 1 %1$s</string>
+
+  <!-- Water Bottle -->
+  <string name="wbottle_name">Water Bottle</string>
+  <string name="wbottle_desc">Gains water. Return all %1$s in play to hand. Reduce the upkeep cost of all
+  %2$s by 1. Increment die counter of all %3$s by 1. Refresh all %4$s in play.</string>
+
+  <!-- Rain Check -->
+  <string name="rcheck_name">Rain Check</string>
+  <string name="rcheck_desc">Draft a %1$s card. Return this to the supply.</string>
+
+  <!-- Sad Memory -->
+  <string name="smemory_name">Sad Memory</string>
+  <string name="smemory_desc">When you put this card in your hand, discard it.</string>
+
+  <!-- Draft Cards -->
+  <string name="automate_name">Automate</string>
+  <string name="automate_desc">Complete an %1$s requiring 1 %2$s.</string>
+</resources>

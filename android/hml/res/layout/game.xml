@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+  <GridLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:columnCount="4"
+      android:rowCount="4"
+      android:id="@+id/shopGrid">
+  </GridLayout>
+  <LinearLayout android:id="@+id/mainPanel"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <bgm.hml.view.PlayView android:layout_width="wrap_content"
+                           android:layout_height="fill_parent"></bgm.hml.view.PlayView>
+    <bgm.hml.view.HandView android:id="@+id/hand"
+                           android:layout_width="wrap_content"
+                           android:layout_height="fill_parent"></bgm.hml.view.HandView>
+  </LinearLayout>
+</LinearLayout>

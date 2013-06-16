@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="PlayView"></declare-styleable>
+  <declare-styleable name="HandView"></declare-styleable>
+</resources>
