@@ -22,7 +22,5 @@ public class HandView extends ScrollView {
   }
 
   public void addCard(CardSpec card) {
-    CardView cardView = new CardView(this.getContext(), card);
-    this.container.addView(cardView);
   }
 }

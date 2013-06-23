@@ -1,6 +1,7 @@
 package bgm.hml.decorator;
 
 import bgm.hml.data.CardSpec;
+import org.jetbrains.annotations.Nullable;
 
 /**
  *
@@ -8,4 +9,6 @@ import bgm.hml.data.CardSpec;
 public interface HasCardSpec {
 
   CardSpec getCardSpec();
+
+  void setCardSpec(@Nullable CardSpec cardSpec);
 }

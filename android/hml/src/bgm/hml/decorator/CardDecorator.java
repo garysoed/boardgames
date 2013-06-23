@@ -14,8 +14,9 @@ import bgm.hml.data.card.WaterBottle;
 import bgm.hml.view.CardDisplay;
 
 import static android.graphics.Color.argb;
-import static bgm.hml.data.CardClass.ACTIVITY;
+import static bgm.hml.data.CardClass.REWARDS;
 import static bgm.hml.data.CardTribe.*;
+import static bgm.hml.data.CardType.ACTION;
 import static bgm.hml.data.CardType.CONSUMABLE;
 
 /**
@@ -23,41 +24,40 @@ import static bgm.hml.data.CardType.CONSUMABLE;
  */
 public class CardDecorator {
 
-  public static <T extends View & CardDisplay> void decorate(T view) {
-    CardSpec cardSpec = view.getCardSpec();
-    int backgroundColor;
-
+  public static int getCardBackground(CardSpec cardSpec) {
     // Staples
     if (cardSpec instanceof Banana) {
-      backgroundColor = argb(255, 255, 255, 0);
+      return argb(255, 255, 230, 0);
     } else if (cardSpec instanceof WaterBottle) {
-      backgroundColor = argb(255, 0, 255, 255);
+      return argb(255, 0, 255, 255);
     } else if (cardSpec instanceof RainCheck) {
-      backgroundColor = argb(255, 255, 0, 255);
+      return argb(255, 255, 0, 255);
     } else if (cardSpec instanceof SadMemory) {
-      backgroundColor = argb(255, 128, 128, 128);
+      return argb(255, 128, 128, 128);
 
       // Friends
     } else if (cardSpec.getCardTribe() == CAT) {
-      backgroundColor = argb(255, 150, 75, 75);
+      return argb(255, 150, 75, 75);
     } else if (cardSpec.getCardTribe() == ROBOT) {
-      backgroundColor = argb(255, 192, 192, 192);
+      return argb(255, 192, 192, 192);
     } else if (cardSpec.getCardTribe() == SPIRIT) {
-      backgroundColor = argb(255, 116, 195, 101);
+      return argb(255, 116, 195, 101);
     } else if (cardSpec.getCardTribe() == TEACHER) {
-      backgroundColor = argb(255, 233, 150, 122);
+      return argb(255, 233, 150, 122);
 
-    } else if (cardSpec.getCardClass() == ACTIVITY) {
-      backgroundColor = argb(255, 0, 0, 255);
+    } else if (cardSpec.getCardClass() == REWARDS) {
+      return argb(255, 0, 0, 255);
     } else if (cardSpec.getCardType() == CONSUMABLE) {
-      backgroundColor = argb(255, 0, 255, 0);
-    } else {
-      // Assume action card
-      backgroundColor = argb(255, 255, 0, 0);
+      return argb(255, 0, 255, 0);
+    } else if (cardSpec.getCardType() == ACTION) {
+      return argb(255, 255, 0, 0);
     }
+    throw new UnsupportedOperationException("Unsupported card spec: " + cardSpec);
+  }
 
-    view.setBackgroundColor(backgroundColor);
-    view.setName(cardSpec.getName());
+  public static <T extends View & CardDisplay> void decorate(T view) {
+
+    view.setName(view.getCardSpec().getName());
     view.setOnLongClickListener(new RealLongClickListener());
   }
 

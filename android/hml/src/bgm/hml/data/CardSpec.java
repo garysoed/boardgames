@@ -16,8 +16,7 @@ public abstract class CardSpec implements Cloneable {
   private final CharSequence description;
   private final CardType cardType;
   private final CardClass cardClass;
-  @Nullable
-  private final CardTribe cardTribe;
+  @Nullable private final CardTribe cardTribe;
   private final int happiness;
   private final int copyCount;
 

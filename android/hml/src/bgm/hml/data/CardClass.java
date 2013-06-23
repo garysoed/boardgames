@@ -7,7 +7,7 @@ import bgm.hml.R;
  */
 public enum CardClass {
   STAPLE(R.string.staple),
-  ACTIVITY(R.string.activity),
+  REWARDS(R.string.activity),
   DRAFT(R.string.draft);
 
   private final int stringResourceId;

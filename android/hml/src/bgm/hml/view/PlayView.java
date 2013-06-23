@@ -22,8 +22,6 @@ public class PlayView extends ScrollView {
   }
 
   public void playCard(CardSpec card) {
-    CardView cardView = new CardView(this.getContext(), card);
-    this.container.addView(cardView);
   }
 
   public void unplayLastCard() {
