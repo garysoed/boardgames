@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Html;
+import android.text.Spanned;
 import android.view.View;
 import bgm.hml.R;
 import bgm.hml.data.CardSpec;
@@ -23,6 +24,8 @@ import static bgm.hml.data.CardType.CONSUMABLE;
  *
  */
 public class CardDecorator {
+
+  private static final String SEPARATOR = " - ";
 
   public static int getCardBackground(CardSpec cardSpec) {
     // Staples
@@ -55,50 +58,25 @@ public class CardDecorator {
     throw new UnsupportedOperationException("Unsupported card spec: " + cardSpec);
   }
 
-  public static <T extends View & CardDisplay> void decorate(T view) {
-
-    view.setName(view.getCardSpec().getName());
-    view.setOnLongClickListener(new RealLongClickListener());
+  public static Spanned renderCardDescription(CardSpec cardSpec, Context context) {
+    return Html.fromHtml(String.format(
+        context.getString(R.string.card_desc),
+        renderCardSpec(context, cardSpec),
+        cardSpec.getHappiness(),
+        cardSpec.getDescription()));
   }
 
-  private static class RealLongClickListener implements View.OnLongClickListener {
-
-    private static final String SEPARATOR = " - ";
-
-    @Override
-    public boolean onLongClick(View view) {
-      CardDisplay cardDisplay = (CardDisplay) view;
-      CardSpec cardSpec = cardDisplay.getCardSpec();
-
-      Context context = view.getContext();
-      AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-      dialogBuilder.setTitle(cardSpec.getName());
-      dialogBuilder.setMessage(
-          Html.fromHtml(String.format(
-              context.getString(R.string.card_desc),
-              renderCardSpec(context, cardSpec),
-              cardSpec.getHappiness(),
-              cardSpec.getDescription())));
-      dialogBuilder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialogInterface, int i) { }
-      });
-      dialogBuilder.create().show();
-      return true;
-    }
-
-    private String renderCardSpec(Context context, CardSpec cardSpec) {
-      StringBuilder builder = new StringBuilder();
+  private static String renderCardSpec(Context context, CardSpec cardSpec) {
+    StringBuilder builder = new StringBuilder();
+    builder
+        .append(context.getString(cardSpec.getCardClass().getStringResourceId()))
+        .append(SEPARATOR)
+        .append(context.getString(cardSpec.getCardType().getStringResourceId()));
+    if (cardSpec.getCardTribe() != null) {
       builder
-          .append(context.getString(cardSpec.getCardClass().getStringResourceId()))
           .append(SEPARATOR)
-          .append(context.getString(cardSpec.getCardType().getStringResourceId()));
-      if (cardSpec.getCardTribe() != null) {
-        builder
-            .append(SEPARATOR)
-            .append(context.getString(cardSpec.getCardTribe().getStringResourceId()));
-      }
-      return builder.toString();
+          .append(context.getString(cardSpec.getCardTribe().getStringResourceId()));
     }
+    return builder.toString();
   }
 }

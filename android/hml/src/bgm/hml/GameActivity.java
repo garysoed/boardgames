@@ -15,7 +15,9 @@ public class GameActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.game);
 
-    ((CardView) findViewById(R.id.view)).setCardSpec(new Banana(this));
-    ((CardView) findViewById(R.id.view1)).setCardSpec(new WaterBottle(this));
+    ((CardView) findViewById(R.id.bananaDraft)).setCardSpec(new Banana(this));
+    ((CardView) findViewById(R.id.waterBottleDraft)).setCardSpec(new WaterBottle(this));
+    ((CardView) findViewById(R.id.rainCheckDraft)).setCardSpec(new RainCheck(this));
+    ((CardView) findViewById(R.id.sadMemoryDraft)).setCardSpec(new SadMemory(this));
   }
 }
