@@ -12,6 +12,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public abstract class CardSpec implements Cloneable {
 
+  private final CharSequence shortName;
   private final CharSequence name;
   private final CharSequence description;
   private final CardType cardType;
@@ -28,6 +29,27 @@ public abstract class CardSpec implements Cloneable {
       @Nullable CardTribe cardTribe,
       int happiness,
       int copyCount) {
+    this(
+        name,
+        name,
+        description,
+        cardClass,
+        cardType,
+        cardTribe,
+        happiness,
+        copyCount);
+  }
+
+  protected CardSpec(
+      CharSequence shortName,
+      CharSequence name,
+      CharSequence description,
+      CardClass cardClass,
+      CardType cardType,
+      @Nullable CardTribe cardTribe,
+      int happiness,
+      int copyCount) {
+    this.shortName = checkNotNull(shortName, "shortName");
     this.name = checkNotNull(name, "name");
     this.cardType = checkNotNull(cardType, "cardType");
     this.cardClass = checkNotNull(cardClass, "cardClass");
@@ -39,6 +61,10 @@ public abstract class CardSpec implements Cloneable {
 
   public CardType getCardType() {
     return cardType;
+  }
+
+  public CharSequence getShortName() {
+    return shortName;
   }
 
   public CharSequence getName() {

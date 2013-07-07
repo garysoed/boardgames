@@ -15,6 +15,8 @@ import bgm.hml.data.CardSpec;
 import bgm.hml.decorator.CardDecorator;
 import org.jetbrains.annotations.Nullable;
 
+import javax.inject.Inject;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -46,7 +48,7 @@ public class CardView extends LinearLayout implements CardDisplay, View.OnLongCl
   public void setCardSpec(@Nullable CardSpec cardSpec) {
     this.cardSpec = cardSpec;
     if (cardSpec != null) {
-      this.setName(cardSpec.getName());
+      this.setName(cardSpec.getShortName());
       this.setBackgroundColor(CardDecorator.getCardBackground(cardSpec));
     } else {
       this.setName("");

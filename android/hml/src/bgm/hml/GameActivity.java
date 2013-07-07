@@ -5,10 +5,14 @@ import android.os.Bundle;
 import bgm.hml.data.card.*;
 import bgm.hml.view.CardView;
 
+import javax.inject.Inject;
+
 /**
  *
  */
 public class GameActivity extends Activity {
+
+  @Inject Integer a;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

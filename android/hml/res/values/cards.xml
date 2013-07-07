@@ -39,4 +39,10 @@
   <!-- Draft Cards -->
   <string name="automate_name">Automate</string>
   <string name="automate_desc">Complete an %1$s requiring 1 %2$s.</string>
+
+  <string name="gofxmasfuture_name">Ghost of Christmas Future</string>
+  <string name="gofxmasfuture_sname">G. of Xmas Future</string>
+  <string name="gofxmasfuture_desc">Ghost of Christmas Future has an upkeep of [1].\n\n
+    At the beginning of the turn, draw four cards, then discard any number of cards. Draw only that number of cards
+    during this turn’s draw step.</string>
 </resources>
