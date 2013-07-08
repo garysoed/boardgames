@@ -34,6 +34,9 @@ public class GameActivity extends Activity {
 
     HandView handView = (HandView) findViewById(R.id.hand);
     handView.addCard(new Banana(this));
+    handView.addCard(new SadMemory(this));
     handView.addCard(new Banana(this));
+    handView.addCard(new WaterBottle(this));
+    handView.addCard(new RainCheck(this));
   }
 }

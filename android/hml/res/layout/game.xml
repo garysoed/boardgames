@@ -37,11 +37,14 @@
       android:orientation="horizontal"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
-      android:weightSum="4">
+      android:weightSum="4"
+      android:longClickable="false">
     <view class="bgm.hml.view.HandView"
           android:id="@+id/hand"
-          android:layout_width="fill_parent"
-          android:layout_height="fill_parent">
+          android:layout_width="0dp"
+          android:layout_height="fill_parent"
+          android:layout_weight="1"
+        >
     </view>
   </LinearLayout>
 </LinearLayout>

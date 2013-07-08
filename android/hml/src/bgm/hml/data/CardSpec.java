@@ -1,9 +1,16 @@
 package bgm.hml.data;
 
+import bgm.hml.data.card.Banana;
+import bgm.hml.data.card.RainCheck;
+import bgm.hml.data.card.WaterBottle;
+import com.google.common.base.Function;
 import com.google.common.base.Objects;
 import com.google.common.base.Throwables;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultiset;
-import org.jetbrains.annotations.Nullable;
+import com.google.common.collect.Ordering;
+
+import javax.annotation.Nullable;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -122,5 +129,73 @@ public abstract class CardSpec implements Cloneable {
         && Objects.equal(this.cardTribe, other.cardTribe)
         && Objects.equal(this.happiness, other.happiness)
         && Objects.equal(this.copyCount, other.copyCount);
+  }
+
+  public static Ordering<CardSpec> getOrdering() {
+    return Ordering.compound(ImmutableList.of(getOrderingByType(), getOrderingByShortName()));
+  }
+
+  /**
+   * <ol>
+   *   <li>Rewards - Consumable</li>
+   *   <li>Rain Check</li>
+   *   <li>Banana</li>
+   *   <li>Water Bottle</li>
+   *   <li>Friend - Cat</li>
+   *   <li>Friend - Robot</li>
+   *   <li>Friend - Spirit</li>
+   *   <li>Friend - Teacher</li>
+   *   <li>Action</li>
+   *   <li>Rewards - Memory</li>
+   *   <li>Memory</li>
+   * </ol>
+   * @return
+   */
+  private static Ordering<CardSpec> getOrderingByType() {
+    return Ordering.natural()
+        .onResultOf(new Function<CardSpec, Integer>() {
+
+          @Override
+          public Integer apply(CardSpec cardSpec) {
+            CardClass cardClass = cardSpec.getCardClass();
+            CardType cardType = cardSpec.getCardType();
+            CardTribe cardTribe = cardSpec.getCardTribe();
+            if (cardClass == CardClass.REWARDS && cardType == CardType.CONSUMABLE) {
+              return 0;
+            } else if (cardSpec instanceof RainCheck) {
+              return 1;
+            } else if (cardSpec instanceof Banana) {
+              return 2;
+            } else if (cardSpec instanceof WaterBottle) {
+              return 3;
+            } else if (cardTribe == CardTribe.CAT) {
+              return 4;
+            } else if (cardTribe == CardTribe.ROBOT) {
+              return 5;
+            } else if (cardTribe == CardTribe.SPIRIT) {
+              return 6;
+            } else if (cardTribe == CardTribe.TEACHER) {
+              return 7;
+            } else if (cardType == CardType.ACTION) {
+              return 8;
+            } else if (cardClass == CardClass.REWARDS && cardType == CardType.MEMORY) {
+              return 9;
+            } else if (cardType == CardType.MEMORY) {
+              return 10;
+            }
+            return 11;
+          }
+        });
+  }
+
+  private static Ordering<CardSpec> getOrderingByShortName() {
+    return Ordering.natural()
+        .onResultOf(new Function<CardSpec, String>() {
+
+          @Override
+          public String apply(CardSpec cardSpec) {
+            return cardSpec.getShortName().toString();
+          }
+        });
   }
 }
