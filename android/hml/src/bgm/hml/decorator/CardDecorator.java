@@ -1,9 +1,6 @@
 package bgm.hml.decorator;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
@@ -24,7 +21,7 @@ import static bgm.hml.data.CardType.ACTION;
 import static bgm.hml.data.CardType.CONSUMABLE;
 
 /**
- *
+ * Decorator for {@link CardDisplay}s.
  */
 public class CardDecorator {
 

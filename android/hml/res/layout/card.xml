@@ -11,5 +11,5 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:width="0dp"
-            style="@style/CardText"/>
+            style="@style/CardName"/>
 </LinearLayout>

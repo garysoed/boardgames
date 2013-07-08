@@ -8,19 +8,40 @@
   <LinearLayout
           android:orientation="horizontal"
           android:layout_width="fill_parent"
-          android:layout_height="fill_parent">
+          android:layout_height="wrap_content">
     <view android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          class="bgm.hml.view.CardView"
+          class="bgm.hml.view.CardPileView"
           android:id="@+id/bananaDraft"
           android:layout_weight="1"/>
     <view android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          class="bgm.hml.view.CardView" android:id="@+id/waterBottleDraft" android:layout_weight="1"
+          class="bgm.hml.view.CardPileView"
+          android:id="@+id/waterBottleDraft"
+          android:layout_weight="1"
           android:orientation="horizontal"/>
-    <view class="bgm.hml.view.CardView" android:layout_width="wrap_content" android:layout_height="wrap_content"
-          android:id="@+id/rainCheckDraft" android:layout_weight="1" android:orientation="horizontal"/>
-    <view class="bgm.hml.view.CardView" android:layout_width="wrap_content" android:layout_height="wrap_content"
-          android:id="@+id/sadMemoryDraft" android:layout_weight="1" android:orientation="horizontal"/>
+    <view class="bgm.hml.view.CardPileView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/rainCheckDraft"
+          android:layout_weight="1"
+          android:orientation="horizontal"/>
+    <view class="bgm.hml.view.CardPileView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/sadMemoryDraft"
+          android:layout_weight="1"
+          android:orientation="horizontal"/>
+  </LinearLayout>
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:weightSum="4">
+    <view class="bgm.hml.view.HandView"
+          android:id="@+id/hand"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent">
+    </view>
   </LinearLayout>
 </LinearLayout>
