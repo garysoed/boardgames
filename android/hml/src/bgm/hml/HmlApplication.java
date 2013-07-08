@@ -15,15 +15,11 @@ public class HmlApplication extends Application {
   @Override
   public void onCreate() {
     super.onCreate();
-    this.objectGraph = ObjectGraph.create(new HmlModule());
+    this.objectGraph = ObjectGraph.create();
   }
 
   public ObjectGraph getObjectGraph() {
     return objectGraph;
   }
 
-  @Module(injects = GameActivity.class)
-  private static class HmlModule {
-
-  }
 }

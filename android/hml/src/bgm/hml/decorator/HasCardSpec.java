@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public interface HasCardSpec {
 
-  CardSpec getCardSpec();
+  @Nullable CardSpec getCardSpec();
 
   void setCardSpec(@Nullable CardSpec cardSpec);
 }

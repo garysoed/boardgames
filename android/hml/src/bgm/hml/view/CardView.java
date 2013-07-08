@@ -1,6 +1,7 @@
 package bgm.hml.view;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Html;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import bgm.hml.R;
 import bgm.hml.data.CardSpec;
 import bgm.hml.decorator.CardDecorator;
+import bgm.hml.decorator.CardOnLongClickListener;
 import org.jetbrains.annotations.Nullable;
 
 import javax.inject.Inject;
@@ -20,22 +22,32 @@ import javax.inject.Inject;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- *
+ * Displays a single card.
  */
-public class CardView extends LinearLayout implements CardDisplay, View.OnLongClickListener {
+public class CardView extends LinearLayout implements CardDisplay {
 
   private CardSpec cardSpec;
-  private AlertDialog descriptionDialog;
+  private CardOnLongClickListener cardOnLongClickListener;
 
   public CardView(Context context, AttributeSet attrs) {
     super(context, attrs);
     LayoutInflater.from(context).inflate(R.layout.card, this, true /* attachToRoot */);
-    this.setOnLongClickListener(this);
   }
 
   @Override
   public void setName(CharSequence name) {
     ((TextView) this.findViewById(R.id.cardName)).setText(name);
+  }
+
+  @Override
+  public void setCardOnLongClickListener(CardOnLongClickListener listener) {
+    this.cardOnLongClickListener = listener;
+    this.setOnLongClickListener(listener);
+  }
+
+  @Override
+  public CardOnLongClickListener getCardOnLongClickListener() {
+    return cardOnLongClickListener;
   }
 
   @Override
@@ -47,38 +59,6 @@ public class CardView extends LinearLayout implements CardDisplay, View.OnLongCl
   @Override
   public void setCardSpec(@Nullable CardSpec cardSpec) {
     this.cardSpec = cardSpec;
-    if (cardSpec != null) {
-      this.setName(cardSpec.getShortName());
-      this.setBackgroundColor(CardDecorator.getCardBackground(cardSpec));
-    } else {
-      this.setName("");
-      this.setBackgroundColor(0);
-    }
-    if (this.descriptionDialog != null) {
-      this.descriptionDialog = null;
-    }
-  }
-
-  @Override
-  public boolean onLongClick(View view) {
-    CardDisplay cardDisplay = (CardDisplay) view;
-
-    if (this.descriptionDialog == null) {
-      this.descriptionDialog = createDialog(cardDisplay.getCardSpec(), view.getContext());
-    }
-    this.descriptionDialog.show();
-    return true;
-  }
-
-  private AlertDialog createDialog(CardSpec cardSpec, Context context) {
-    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-    dialogBuilder.setTitle(cardSpec.getName());
-    dialogBuilder.setMessage(CardDecorator.renderCardDescription(
-        cardSpec, this.getContext()));
-    dialogBuilder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface dialogInterface, int i) { }
-    });
-    return dialogBuilder.create();
+    CardDecorator.decorate(this);
   }
 }

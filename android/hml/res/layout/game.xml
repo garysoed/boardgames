@@ -5,20 +5,22 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
 
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-        <view android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              class="bgm.hml.view.CardView" android:id="@+id/bananaDraft" android:layout_weight="1"/>
-        <view android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              class="bgm.hml.view.CardView" android:id="@+id/waterBottleDraft" android:layout_weight="1"
-              android:orientation="horizontal"/>
-      <view class="bgm.hml.view.CardView" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/rainCheckDraft" android:layout_weight="1" android:orientation="horizontal"/>
-      <view class="bgm.hml.view.CardView" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/sadMemoryDraft" android:layout_weight="1" android:orientation="horizontal"/>
-    </LinearLayout>
+  <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent">
+    <view android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          class="bgm.hml.view.CardView"
+          android:id="@+id/bananaDraft"
+          android:layout_weight="1"/>
+    <view android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          class="bgm.hml.view.CardView" android:id="@+id/waterBottleDraft" android:layout_weight="1"
+          android:orientation="horizontal"/>
+    <view class="bgm.hml.view.CardView" android:layout_width="wrap_content" android:layout_height="wrap_content"
+          android:id="@+id/rainCheckDraft" android:layout_weight="1" android:orientation="horizontal"/>
+    <view class="bgm.hml.view.CardView" android:layout_width="wrap_content" android:layout_height="wrap_content"
+          android:id="@+id/sadMemoryDraft" android:layout_weight="1" android:orientation="horizontal"/>
+  </LinearLayout>
 </LinearLayout>

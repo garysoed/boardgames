@@ -1,6 +1,7 @@
 package bgm.hml.decorator;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Html;
@@ -13,6 +14,8 @@ import bgm.hml.data.card.RainCheck;
 import bgm.hml.data.card.SadMemory;
 import bgm.hml.data.card.WaterBottle;
 import bgm.hml.view.CardDisplay;
+
+import javax.annotation.Nullable;
 
 import static android.graphics.Color.argb;
 import static bgm.hml.data.CardClass.REWARDS;
@@ -27,7 +30,34 @@ public class CardDecorator {
 
   private static final String SEPARATOR = " - ";
 
-  public static int getCardBackground(CardSpec cardSpec) {
+  public static <T extends View & CardDisplay> void decorate(T cardDisplay) {
+    @Nullable CardSpec cardSpec = cardDisplay.getCardSpec();
+    if (cardSpec == null) {
+      cardDisplay.setBackgroundColor(0);
+      cardDisplay.setName("");
+    } else {
+      int background = getCardBackground(cardSpec);
+      cardDisplay.setBackgroundColor(background);
+      cardDisplay.setName(cardSpec.getShortName());
+    }
+
+    CardOnLongClickListener cardOnLongClickListener = cardDisplay.getCardOnLongClickListener();
+    if (cardOnLongClickListener == null) {
+      cardOnLongClickListener = new CardOnLongClickListener();
+      cardDisplay.setCardOnLongClickListener(cardOnLongClickListener);
+    }
+    cardOnLongClickListener.reset();
+  }
+
+  public static Spanned renderCardDescription(CardSpec cardSpec, Context context) {
+    return Html.fromHtml(String.format(
+        context.getString(R.string.card_desc),
+        renderCardSpec(context, cardSpec),
+        cardSpec.getHappiness(),
+        cardSpec.getDescription()));
+  }
+
+  private static int getCardBackground(CardSpec cardSpec) {
     // Staples
     if (cardSpec instanceof Banana) {
       return argb(255, 255, 230, 0);
@@ -56,14 +86,6 @@ public class CardDecorator {
       return argb(255, 255, 0, 0);
     }
     throw new UnsupportedOperationException("Unsupported card spec: " + cardSpec);
-  }
-
-  public static Spanned renderCardDescription(CardSpec cardSpec, Context context) {
-    return Html.fromHtml(String.format(
-        context.getString(R.string.card_desc),
-        renderCardSpec(context, cardSpec),
-        cardSpec.getHappiness(),
-        cardSpec.getDescription()));
   }
 
   private static String renderCardSpec(Context context, CardSpec cardSpec) {
